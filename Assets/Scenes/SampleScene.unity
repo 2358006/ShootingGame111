@@ -1666,7 +1666,7 @@ GameObject:
   - component: {fileID: 1609401472}
   - component: {fileID: 1609401471}
   m_Layer: 0
-  m_Name: ScoreManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -8,8 +8,6 @@ public class Background : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = Vector2.up;
-
-        bgMaterail.mainTextureOffset += direction * scrollSpeed * Time.deltaTime;
+        bgMaterail.mainTextureOffset += Vector2.up * scrollSpeed * Time.deltaTime;
     }
 }

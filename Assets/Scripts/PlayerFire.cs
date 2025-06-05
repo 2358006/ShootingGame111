@@ -4,12 +4,22 @@ public class PlayerFire : MonoBehaviour
 {
     public GameObject bulletFactory;
 
-    public GameObject firePosition;
-    public GameObject firePosition2;
+    GameObject firePosition;
+    GameObject firePosition2;
+
+    void Awake()
+    {
+        firePosition = GameObject.Find("FirePosition");
+        firePosition2 = GameObject.Find("FirePosition2");
+    }
 
     void Update()
     {
+        Fire();
+    }
 
+    void Fire()
+    {
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject bullet = Instantiate(bulletFactory);
@@ -18,7 +28,5 @@ public class PlayerFire : MonoBehaviour
             bullet.transform.position = firePosition.transform.position;
             bullet2.transform.position = firePosition2.transform.position;
         }
-
-
     }
 }

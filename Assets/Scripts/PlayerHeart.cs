@@ -3,17 +3,14 @@ using UnityEngine;
 public class PlayerHeart : MonoBehaviour
 {
     public int maxHeart = 3;
-    internal int heart;
     public int scoreHeart = 1;
-
-    ScoreManager scoreManager;
+    internal int heart;
 
     public bool isGameOver;
 
     void Start()
     {
         heart = maxHeart;
-        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
     void Update()
     {
@@ -25,11 +22,11 @@ public class PlayerHeart : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy") { scoreManager.SetHeart(); }
+        Debug.Log($"Player taged {collision.gameObject.tag}");
+        GameManager.Instance.SetHeart(collision.gameObject.tag);
 
         if (heart == 0)
         {
-            isGameOver = true;
             Destroy(gameObject);
         }
     }

@@ -25,7 +25,6 @@ public class Enemy : MonoBehaviour
         else
         {
             dir = Vector3.down;
-            //transform.position += dir * speed * Time.deltaTime;
         }
     }
 
@@ -39,18 +38,14 @@ public class Enemy : MonoBehaviour
         GameObject explosion = Instantiate(explosionFactory);
         explosion.transform.position = transform.position;
 
-        Debug.Log($"{collision.gameObject.tag}에 맞았어요");
+        Debug.Log($"Enemy taged {collision.gameObject.tag}");
 
         if (collision.gameObject.tag == "Bullet")
         {
             scoreManager.SetScore();
             Destroy(collision.gameObject);
-            Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }
