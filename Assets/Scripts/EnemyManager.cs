@@ -28,9 +28,12 @@ public class EnemyManager : MonoBehaviour
             enemy.transform.position = spawnPosition[Random.Range(0, spawnPosition.Length)].position;
 
             currentTime = 0;
-
             createTime = Random.Range(minTime, maxTime);
         }
+    }
+
+    void CreateEnemy()
+    {
 
     }
 }

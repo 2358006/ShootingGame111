@@ -39,10 +39,11 @@ public class Enemy : MonoBehaviour
         GameObject explosion = Instantiate(explosionFactory);
         explosion.transform.position = transform.position;
 
+        Debug.Log($"{collision.gameObject.tag}에 맞았어요");
+
         if (collision.gameObject.tag == "Bullet")
         {
             scoreManager.SetScore();
-
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

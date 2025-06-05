@@ -6,8 +6,6 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        Vector3 dir = Vector3.up;
-
-        transform.position += dir * speed * Time.deltaTime;
+        transform.position += Vector3.up * speed * Time.deltaTime;
     }
 }
