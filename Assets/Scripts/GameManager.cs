@@ -20,15 +20,17 @@ public class GameManager : MonoBehaviour
         // 싱글톤
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
+
+        bestScore = PlayerPrefs.GetInt("Best Score", 0);
+        life = GameObject.Find("Player").GetComponent<PlayerHeart>();
     }
     void Start()
     {
-        life = GameObject.Find("Player").GetComponent<PlayerHeart>();
+
         lifeUI.text = $"Life : {life.heart}";
 
-        bestScore = PlayerPrefs.GetInt("Best Score", 0);
         bestScoreUI.text = $"Best Score : {bestScore}";
-
+        Debug.Log($"Best Score : {bestScore}");
         currentScoreUI.text = $"Current Score : {currentScore}";
     }
 
@@ -42,8 +44,8 @@ public class GameManager : MonoBehaviour
         {
             bestScore = currentScore;
             bestScoreUI.text = $"Best Score : {bestScore}";
-
             PlayerPrefs.SetInt("Best Score", bestScore);
+            PlayerPrefs.Save();
         }
     }
 
