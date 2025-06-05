@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHeart : MonoBehaviour
@@ -5,8 +6,6 @@ public class PlayerHeart : MonoBehaviour
     public int maxHeart = 3;
     public int scoreHeart = 1;
     internal int heart;
-
-    public bool isGameOver;
 
     void Start()
     {
@@ -23,11 +22,12 @@ public class PlayerHeart : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log($"Player taged {collision.gameObject.tag}");
+
         GameManager.Instance.SetHeart(collision.gameObject.tag);
 
         if (heart == 0)
         {
-            Destroy(gameObject);
+            GameManager.Instance.GameOver();
         }
     }
 }

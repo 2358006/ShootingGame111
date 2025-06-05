@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public float speed = 5;
-
+    public float speed = 5f;
     public GameObject explosionFactory;
 
     void Update()
@@ -19,7 +18,6 @@ public class Item : MonoBehaviour
         {
             GameObject explosion = Instantiate(explosionFactory);
             explosion.transform.position = transform.position;
-
             Destroy(gameObject);
         }
     }

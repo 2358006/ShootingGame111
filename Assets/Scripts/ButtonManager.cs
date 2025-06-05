@@ -9,7 +9,9 @@ public class ButtonManager : MonoBehaviour
     }
 
     public void OnClickRestart()
-    { }
+    {
+        SceneManager.LoadScene("GameScene");
+    }
 
     public void OnclickGoTitle()
     {

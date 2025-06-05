@@ -1,4 +1,6 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -49,15 +51,17 @@ public class GameManager : MonoBehaviour
 
     public void SetHeart(string tag)
     {
-        if (tag == "Enemy")
-        {
-            life.heart -= life.scoreHeart;
-        }
+        if (tag == "Enemy") { life.heart -= life.scoreHeart; }
         if (tag == "Item")
         {
             if (life.heart < life.maxHeart) { life.heart += life.scoreHeart; }
         }
 
         lifeUI.text = $"Life : {life.heart}";
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }
