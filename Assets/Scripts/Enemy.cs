@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
             GameManager.Instance.SetScore();
             Destroy(collision.gameObject);
         }
-
         Destroy(gameObject);
     }
 }

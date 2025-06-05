@@ -3,48 +3,27 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public Transform[] spawnPosition;
-    float currentTime;
 
-    public float createTime = 1;
+    float createTime = 1;
 
-    float minTime = 1;
+    float minTime = 1f;
 
-    float maxTime = 5;
+    float maxTime = 5f;
 
     public GameObject enemyFactory;
 
     void Start()
     {
-        createTime = Random.Range(minTime, maxTime);
         CreateEnemy();
-    }
-
-    void Update()
-    {
-        // currentTime += Time.deltaTime;
-
-        // if (currentTime > createTime)
-        // {
-        //     GameObject enemy = Instantiate(enemyFactory);
-        //     enemy.transform.position = spawnPosition[Random.Range(0, spawnPosition.Length)].position;
-
-        //     currentTime = 0;
-        //     createTime = Random.Range(minTime, maxTime);
-        // }
     }
 
     void CreateEnemy()
     {
-currentTime += Time.deltaTime;
+        GameObject enemy = Instantiate(enemyFactory);
+        enemy.transform.position = spawnPosition[Random.Range(0, spawnPosition.Length)].position;
 
-        if (currentTime > createTime)
-        {
-            GameObject enemy = Instantiate(enemyFactory);
-            enemy.transform.position = spawnPosition[Random.Range(0, spawnPosition.Length)].position;
+        createTime = Random.Range(minTime, maxTime);
 
-            currentTime = 0;
-            createTime = Random.Range(minTime, maxTime);
-        }
-Invoke("CreateEnemy", createTime);
+        Invoke("CreateEnemy", createTime);
     }
 }

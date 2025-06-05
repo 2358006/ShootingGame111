@@ -16,6 +16,12 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("GameStart");
     }
 
+    public void OnClickExit()
+    {
+        Application.Quit();
+        Debug.Log("종료 딸깍");
+    }
+
     public void DeleteScore()
     {
 
