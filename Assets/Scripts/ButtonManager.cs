@@ -21,7 +21,7 @@ public class ButtonManager : MonoBehaviour
     public void OnClickExit()
     {
         Application.Quit();
-        Debug.Log("종료 딸깍");
+        Debug.Log("종료함");
     }
 
     public void DeleteScore()

@@ -142,7 +142,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6cac4e7122786824c824cd7507295c6f, type: 3}
   m_Resource: {fileID: 8300000, guid: 6cac4e7122786824c824cd7507295c6f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -240,6 +240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  audioSource: {fileID: 7343447243961497368}
+  explosionClip: {fileID: 8300000, guid: 6cac4e7122786824c824cd7507295c6f, type: 3}
   explosionFactory: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
 --- !u!1001 &6939540074633795444
 PrefabInstance:

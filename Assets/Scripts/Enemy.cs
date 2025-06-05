@@ -2,11 +2,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public float speed = 5;
+    AudioSource audioSource;
+    public AudioClip explosionClip;
+
     Vector3 dir;
     GameObject player;
-    public float speed = 5;
 
     public GameObject explosionFactory;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Start()
     {
@@ -28,16 +36,22 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        GameObject explosion = Instantiate(explosionFactory);
-        explosion.transform.position = transform.position;
-
         Debug.Log($"Enemy taged {collision.gameObject.tag}");
 
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag != "Item")
         {
-            GameManager.Instance.SetScore();
-            Destroy(collision.gameObject);
+            GameObject explosion = Instantiate(explosionFactory);
+            explosion.transform.position = transform.position;
+
+            if (collision.gameObject.tag == "Bullet")
+            {
+                GameManager.Instance.SetScore();
+
+                audioSource.PlayOneShot(explosionClip);
+                Destroy(collision.gameObject);
+            }
+
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
