@@ -16,11 +16,26 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         createTime = Random.Range(minTime, maxTime);
+        CreateEnemy();
     }
 
     void Update()
     {
-        currentTime += Time.deltaTime;
+        // currentTime += Time.deltaTime;
+
+        // if (currentTime > createTime)
+        // {
+        //     GameObject enemy = Instantiate(enemyFactory);
+        //     enemy.transform.position = spawnPosition[Random.Range(0, spawnPosition.Length)].position;
+
+        //     currentTime = 0;
+        //     createTime = Random.Range(minTime, maxTime);
+        // }
+    }
+
+    void CreateEnemy()
+    {
+currentTime += Time.deltaTime;
 
         if (currentTime > createTime)
         {
@@ -30,10 +45,6 @@ public class EnemyManager : MonoBehaviour
             currentTime = 0;
             createTime = Random.Range(minTime, maxTime);
         }
-    }
-
-    void CreateEnemy()
-    {
-
+Invoke("CreateEnemy", createTime);
     }
 }

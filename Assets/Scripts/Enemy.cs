@@ -8,12 +8,8 @@ public class Enemy : MonoBehaviour
 
     public GameObject explosionFactory;
 
-    ScoreManager scoreManager;
-
     void Start()
     {
-        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
-
         int rndValue = Random.Range(0, 10);
         player = GameObject.Find("Player");
 
@@ -22,10 +18,7 @@ public class Enemy : MonoBehaviour
             dir = player.transform.position - transform.position;
             dir.Normalize();
         }
-        else
-        {
-            dir = Vector3.down;
-        }
+        else { dir = Vector3.down; }
     }
 
     void Update()
@@ -42,7 +35,7 @@ public class Enemy : MonoBehaviour
 
         if (collision.gameObject.tag == "Bullet")
         {
-            scoreManager.SetScore();
+            GameManager.Instance.SetScore();
             Destroy(collision.gameObject);
         }
 
