@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public class ItemSpawner : MonoBehaviour
 {
     public Transform[] spawnPosition;
 
