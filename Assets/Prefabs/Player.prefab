@@ -118,7 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletFactory: {fileID: 1351737633588205029, guid: 5b0f4a76942aafb419756cd77f960e8a, type: 3}
-  audioSource: {fileID: 3389750963970820125}
   bulletClip: {fileID: 8300000, guid: 9378e143fbb4ddf4180e531c50642f77, type: 3}
 --- !u!114 &1125579809208690340
 MonoBehaviour:
@@ -132,8 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42de5261e6ee94449bea3b4e68b00c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionClip: {fileID: 8300000, guid: 6cac4e7122786824c824cd7507295c6f, type: 3}
   maxHeart: 3
-  scoreHeart: 1
+  getHeart: 1
 --- !u!82 &3389750963970820125
 AudioSource:
   m_ObjectHideFlags: 0

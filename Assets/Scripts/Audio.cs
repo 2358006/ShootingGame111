@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    public static Audio Instance { get; private set; } // 싱글톤 
+    public static Audio Instance { get; private set; }
 
     AudioSource audioSource;
 
     void Awake()
     {
-        // 싱글톤 
         if (Instance == null)
         {
             Instance = this;
@@ -19,9 +18,9 @@ public class Audio : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void Start()
     {
-        // 재생
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
     }

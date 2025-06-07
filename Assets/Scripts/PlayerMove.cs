@@ -3,15 +3,12 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public StageData stageData;
-
     public float speed = 5;
 
-    // Update is called once per frame
     void Update()
     {
         transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * speed * Time.deltaTime;
     }
-
 
     void LateUpdate()
     {

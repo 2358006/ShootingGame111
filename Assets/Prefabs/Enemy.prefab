@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5413580460619844216}
   - component: {fileID: 6930745817762896192}
   - component: {fileID: 7715447007863656471}
-  - component: {fileID: 7343447243961497368}
   - component: {fileID: 869488196697685784}
+  - component: {fileID: 1703458945900900328}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -130,7 +130,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!82 &7343447243961497368
+--- !u!114 &869488196697685784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751510310881941391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8afbfc5d2b3ad7e4bafd31a21a1d1c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  explosionFactory: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
+  explosionClip: {fileID: 8300000, guid: 6cac4e7122786824c824cd7507295c6f, type: 3}
+--- !u!82 &1703458945900900328
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,22 +242,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &869488196697685784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751510310881941391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8afbfc5d2b3ad7e4bafd31a21a1d1c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  audioSource: {fileID: 7343447243961497368}
-  explosionClip: {fileID: 8300000, guid: 6cac4e7122786824c824cd7507295c6f, type: 3}
-  explosionFactory: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
 --- !u!1001 &6939540074633795444
 PrefabInstance:
   m_ObjectHideFlags: 0

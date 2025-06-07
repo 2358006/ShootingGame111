@@ -3,13 +3,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 5;
-    AudioSource audioSource;
-    public AudioClip explosionClip;
 
     Vector3 dir;
     GameObject player;
 
     public GameObject explosionFactory;
+
+    AudioSource audioSource;
+    public AudioClip explosionClip;
 
     void Awake()
     {
@@ -36,8 +37,6 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"Enemy taged {collision.gameObject.tag}");
-
         if (collision.gameObject.tag != "Item")
         {
             GameObject explosion = Instantiate(explosionFactory);
@@ -45,9 +44,8 @@ public class Enemy : MonoBehaviour
 
             if (collision.gameObject.tag == "Bullet")
             {
-                GameManager.Instance.SetScore();
-
                 audioSource.PlayOneShot(explosionClip);
+                GameManager.Instance.SetScore();
                 Destroy(collision.gameObject);
             }
 

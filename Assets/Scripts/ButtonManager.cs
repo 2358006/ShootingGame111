@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F)) { DeleteScore(); }
+    }
+
     public void OnClickGameStart()
     {
         SceneManager.LoadScene("GameScene");
@@ -26,6 +31,7 @@ public class ButtonManager : MonoBehaviour
 
     public void DeleteScore()
     {
-
+        PlayerPrefs.DeleteKey("Best Score");
+        PlayerPrefs.Save();
     }
 }
