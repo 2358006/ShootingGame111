@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6930745817762896192}
   - component: {fileID: 7715447007863656471}
   - component: {fileID: 869488196697685784}
-  - component: {fileID: 1703458945900900328}
+  - component: {fileID: 1059747665551851011}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -143,9 +143,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  explosionFactory: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
   explosionClip: {fileID: 8300000, guid: 6cac4e7122786824c824cd7507295c6f, type: 3}
---- !u!82 &1703458945900900328
+  explosionFactory: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
+--- !u!82 &1059747665551851011
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

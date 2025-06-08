@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -7,10 +8,10 @@ public class Enemy : MonoBehaviour
     Vector3 dir;
     GameObject player;
 
-    public GameObject explosionFactory;
-
     AudioSource audioSource;
     public AudioClip explosionClip;
+
+    public GameObject explosionFactory;
 
     void Awake()
     {
@@ -41,13 +42,13 @@ public class Enemy : MonoBehaviour
         {
             GameObject explosion = Instantiate(explosionFactory);
             explosion.transform.position = transform.position;
-
+            audioSource.PlayOneShot(explosionClip);
             if (collision.gameObject.tag == "Bullet")
             {
-                audioSource.PlayOneShot(explosionClip);
                 GameManager.Instance.SetScore();
                 Destroy(collision.gameObject);
             }
+
 
             Destroy(gameObject);
         }
