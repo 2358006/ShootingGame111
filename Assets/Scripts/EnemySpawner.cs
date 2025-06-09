@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPosition;
+    public GameObject enemyFactory;
 
     float createTime = 1;
-
     float minTime = 1f;
-
     float maxTime = 5f;
-
-    public GameObject enemyFactory;
 
     void Start()
     {
@@ -21,9 +18,7 @@ public class EnemyManager : MonoBehaviour
     {
         GameObject enemy = Instantiate(enemyFactory);
         enemy.transform.position = spawnPosition[Random.Range(0, spawnPosition.Length)].position;
-
         createTime = Random.Range(minTime, maxTime);
-
         Invoke("CreateEnemy", createTime);
     }
 }

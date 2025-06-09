@@ -4,40 +4,39 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; } // 싱글톤
-    public Text currentScoreUI;
-    int currentScore;
+    public static GameManager Instance { get; private set; }
 
     public Text bestScoreUI;
     int bestScore;
 
+    public Text currentScoreUI;
+    public int getScore = 1;
+    int currentScore;
+
     public Text lifeUI;
     PlayerHeart life;
 
-
     void Awake()
     {
-        // 싱글톤
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
-
-        bestScore = PlayerPrefs.GetInt("Best Score", 0);
-        life = GameObject.Find("Player").GetComponent<PlayerHeart>();
     }
+
     void Start()
     {
-
-        lifeUI.text = $"Life : {life.heart}";
-
+        bestScore = PlayerPrefs.GetInt("Best Score");
         bestScoreUI.text = $"Best Score : {bestScore}";
         Debug.Log($"Best Score : {bestScore}");
+
         currentScoreUI.text = $"Current Score : {currentScore}";
+
+        life = GameObject.Find("Player").GetComponent<PlayerHeart>();
+        lifeUI.text = $"Life : {life.heart}";
     }
 
     public void SetScore()
     {
-        currentScore++;
-
+        currentScore += getScore;
         currentScoreUI.text = $"Current Score : {currentScore}";
 
         if (currentScore > bestScore)
@@ -49,20 +48,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void SetHeart(string tag)
     {
-        if (tag == "Enemy") { life.heart -= life.scoreHeart; }
         if (tag == "Item")
         {
-            if (life.heart < life.maxHeart) { life.heart += life.scoreHeart; }
+            if (life.heart < life.maxHeart) { life.heart += life.getHeart; }
         }
+
+        if (tag == "Enemy") { life.heart -= life.getHeart; }
 
         lifeUI.text = $"Life : {life.heart}";
     }
 
     public void GameOver()
     {
-        SceneManager.LoadScene("GameOver");
+        if (life.heart == 0) { SceneManager.LoadScene("GameOver"); }
     }
 }

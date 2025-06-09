@@ -3,19 +3,18 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour
 {
     public GameObject bulletFactory;
-    public AudioClip bulletClip;
-
-    AudioSource audioSource;
     GameObject firePosition;
     GameObject firePosition2;
 
-
+    AudioSource audioSource;
+    public AudioClip bulletClip;
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+
         firePosition = GameObject.Find("FirePosition");
         firePosition2 = GameObject.Find("FirePosition2");
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -34,7 +33,6 @@ public class PlayerFire : MonoBehaviour
             bullet2.transform.position = firePosition2.transform.position;
 
             audioSource.PlayOneShot(bulletClip);
-            Debug.Log("총알 나가유");
         }
     }
 }

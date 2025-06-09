@@ -1057,7 +1057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1161066910}
-  - component: {fileID: 1161066909}
+  - component: {fileID: 1161066912}
   - component: {fileID: 1161066911}
   m_Layer: 0
   m_Name: Spawn
@@ -1066,25 +1066,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1161066909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161066908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326b2ca9452daf14e86fbabbb39833ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPosition:
-  - {fileID: 1316567511}
-  - {fileID: 534021988}
-  - {fileID: 1522852292}
-  - {fileID: 1708927104}
-  - {fileID: 622648207}
-  enemyFactory: {fileID: 1751510310881941391, guid: f75e5884d91498d499d6be98a42146c3, type: 3}
 --- !u!4 &1161066910
 Transform:
   m_ObjectHideFlags: 0
@@ -1124,6 +1105,25 @@ MonoBehaviour:
   - {fileID: 1708927104}
   - {fileID: 622648207}
   itemFactory: {fileID: 2703355321747257485, guid: 17bda020e6ee1aa4bb98251caaf4d746, type: 3}
+--- !u!114 &1161066912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161066908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326b2ca9452daf14e86fbabbb39833ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPosition:
+  - {fileID: 1316567511}
+  - {fileID: 534021988}
+  - {fileID: 1522852292}
+  - {fileID: 1708927104}
+  - {fileID: 622648207}
+  enemyFactory: {fileID: 1751510310881941391, guid: f75e5884d91498d499d6be98a42146c3, type: 3}
 --- !u!1 &1174437721
 GameObject:
   m_ObjectHideFlags: 0
