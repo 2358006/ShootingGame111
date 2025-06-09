@@ -5,7 +5,7 @@ public class ItemSpawner : MonoBehaviour
     public Transform[] spawnPosition;
     public GameObject itemFactory;
 
-    float createTime = 1;
+    float createTime;
     float minTime = 1f;
     float maxTime = 5f;
 

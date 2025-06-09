@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
+
+        life = GameObject.Find("Player").GetComponent<PlayerHeart>();
     }
 
     void Start()
@@ -30,7 +32,6 @@ public class GameManager : MonoBehaviour
 
         currentScoreUI.text = $"Current Score : {currentScore}";
 
-        life = GameObject.Find("Player").GetComponent<PlayerHeart>();
         lifeUI.text = $"Life : {life.heart}";
     }
 

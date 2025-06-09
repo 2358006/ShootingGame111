@@ -5,9 +5,9 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] spawnPosition;
     public GameObject enemyFactory;
 
-    float createTime = 1;
-    float minTime = 1f;
-    float maxTime = 5f;
+    float createTime;
+    float minTime = 0.5f;
+    float maxTime = 1f;
 
     void Start()
     {

@@ -23,20 +23,29 @@ public class PlayerHeart : MonoBehaviour
 
     void Update()
     {
-        // HeartTest();
+        HeartTest();
+        HeartRotate();
+        GameManager.Instance.GameOver();
+    }
 
+    void HeartRotate()
+    {
         if (heart == maxHeart)
         {
             transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         }
 
-        if (heart < maxHeart && heart != 0)
+        if (heart < maxHeart)
         {
-            if (heart == 1) { delta = 1.5f; }
+            if (heart == 1) { delta = 2f; }
             transform.Rotate(0, 0, 30 * delta * Time.deltaTime);
         }
+    }
 
-        GameManager.Instance.GameOver();
+    void HeartTest()
+    {
+        if (Input.GetKeyDown(KeyCode.R)) { GameManager.Instance.SetHeart("Enemy"); }
+        if (Input.GetKeyDown(KeyCode.T)) { GameManager.Instance.SetHeart("Item"); }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -44,11 +53,5 @@ public class PlayerHeart : MonoBehaviour
         Debug.Log($"Player taged {collision.gameObject.tag}");
         if (collision.gameObject.tag == "Enemy") { audioSource.PlayOneShot(explosionClip); }
         GameManager.Instance.SetHeart(collision.gameObject.tag);
-    }
-
-    void HeartTest()
-    {
-        if (Input.GetKeyDown(KeyCode.R)) { GameManager.Instance.SetHeart("Enemy"); }
-        if (Input.GetKeyDown(KeyCode.T)) { GameManager.Instance.SetHeart("Item"); }
     }
 }

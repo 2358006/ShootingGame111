@@ -38,18 +38,17 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            GameManager.Instance.SetScore();
+            Destroy(collision.gameObject);
+        }
+
         if (collision.gameObject.tag != "Item")
         {
             GameObject explosion = Instantiate(explosionFactory);
             explosion.transform.position = transform.position;
             audioSource.PlayOneShot(explosionClip);
-            if (collision.gameObject.tag == "Bullet")
-            {
-                GameManager.Instance.SetScore();
-                Destroy(collision.gameObject);
-            }
-
-
             Destroy(gameObject);
         }
     }
